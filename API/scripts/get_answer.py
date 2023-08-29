@@ -16,7 +16,9 @@ from langchain.agents import AgentType
 # CONSTANTS
 MODEL_NAME = 'gpt-3.5-turbo'
 # PERSIST_DIRECTORY = './VectorStore/'
-PERSIST_DIRECTORY = '../Oficial/VectorStore/'
+# PERSIST_DIRECTORY = '../Oficial/VectorStore/'
+PERSIST_DIRECTORY = '../Chroma_Tests/INVESTIMENTOS/VectorStore/'
+
 
 # os.environ["OPENAI_API_KEY"] = "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"
 
@@ -28,7 +30,8 @@ PERSIST_DIRECTORY = '../Oficial/VectorStore/'
 #    / ___ |/ / / (__  )| |/ |/ /  __/ /  / / / / / /_/ / 
 #   /_/  |_/_/ /_/____/ |__/|__/\___/_/  /_/_/ /_/\__, /  
 #                                                /____/   
-#
+# --------------------------------------------------------------------
+
 
 # Creates an instance of the llm
 def load_llm():
@@ -38,6 +41,7 @@ def load_llm():
 def load_vectordb(persist_dir):
     
     embeddings = OpenAIEmbeddings(openai_api_key = os.environ["OPENAI_API_KEY"])
+
 
     persistent_client = chromadb.PersistentClient(path=persist_dir)
 
@@ -122,7 +126,6 @@ def agent_answer_old(query):
 
 
 
-
 # --------------------------------------------------------------------
 #       ____                                        __      
 #      / __ \____  _______  ______ ___  ___  ____  / /______
@@ -130,7 +133,7 @@ def agent_answer_old(query):
 #    / /_/ / /_/ / /__/ /_/ / / / / / /  __/ / / / /_(__  ) 
 #   /_____/\____/\___/\__,_/_/ /_/ /_/\___/_/ /_/\__/____/  
 #
-
+# --------------------------------------------------------------------
 
 
 def pdf_page_splitter():
