@@ -15,9 +15,9 @@ from langchain.agents import AgentType
 
 # CONSTANTS
 MODEL_NAME = 'gpt-3.5-turbo'
-# PERSIST_DIRECTORY = './VectorStore/'
+PERSIST_DIRECTORY = '../VectorStore/'
 # PERSIST_DIRECTORY = '../Oficial/VectorStore/'
-PERSIST_DIRECTORY = '../Chroma_Tests/INVESTIMENTOS/VectorStore/'
+# PERSIST_DIRECTORY = '../Chroma_Tests/INVESTIMENTOS/VectorStore/'
 
 
 # os.environ["OPENAI_API_KEY"] = "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"
@@ -41,7 +41,6 @@ def load_llm():
 def load_vectordb(persist_dir):
     
     embeddings = OpenAIEmbeddings(openai_api_key = os.environ["OPENAI_API_KEY"])
-
 
     persistent_client = chromadb.PersistentClient(path=persist_dir)
 
@@ -136,9 +135,21 @@ def agent_answer_old(query):
 # --------------------------------------------------------------------
 
 
-def pdf_page_splitter():
+def pdf_page_splitter(file_path):
 
-    return True
+    loader = PyPDFLoader(f'./{file_path}')
+    texts = loader.load_and_split()
+    embeddings = OpenAIEmbeddings(openai_api_key = os.environ["OPENAI_API_KEY"])
+
+    persistent_client = chromadb.PersistentClient(path=PERSIST_DIRECTORY)
+
+    vectordb = Chroma.from_documents(texts, embeddings, client=persistent_client)
+
+    if vectordb is not None:
+        return True
+    
+    return False
+
 
 def pdf_chunk_splitter():
 
@@ -147,4 +158,5 @@ def pdf_chunk_splitter():
 def csv_splitter():
 
     return True
+
 
