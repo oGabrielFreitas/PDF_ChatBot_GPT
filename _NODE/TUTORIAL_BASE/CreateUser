@@ -1,0 +1,30 @@
+// Criar nome, email e password
+
+
+interface CreateUserData{
+    name ?: string; // A ? significa que não é uma variável obrigatória
+    email: string;
+    password: string;
+}
+
+export default function createUser({name, email, password}: CreateUserData){
+    const user ={
+        name,
+        email,
+        password,
+    }
+
+    return user;
+}
+
+
+// Criar com os parâmetros separados ao invés de usar interface
+export function createUserEstruturada(name = '', email: string, password: string){
+    const user ={
+        name,
+        email,
+        password,
+    }
+
+    return user;
+}
