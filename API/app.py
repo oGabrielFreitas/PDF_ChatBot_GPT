@@ -1,7 +1,7 @@
 import streamlit as st
 from scripts import get_answer
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 from pathlib import Path
 from langchain.document_loaders import PyPDFLoader

@@ -1,0 +1,14 @@
+Estou escrevendo um Trabalho de Conclusão de Curso.
+
+Título: Aprimorando a Eficiência de Chatbots Utilizando Large Language Models e Bancos de Dados Vetorizados - Estudo de caso desenvolvendo uma API.
+
+Regras:
+- O texto deve ser impessoal (terceira pessoa)
+- Deve conter informações precisar, nada deve ser inventado.
+- Toda informação relevante que for inserida, deve haver a fonte de onde foi retirada. Indique com um [numero] e no final no texto coloca "[numero] link".
+
+O que preciso de você:
+Segundo a ideia do título, que serve apenas para situar você sobre o assunto, seguindo as regras descritas, preciso que você ajuste e melhore os textos que eu inserir a partir daqui.
+
+Texto a ser melhorado:
+
